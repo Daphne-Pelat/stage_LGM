@@ -239,12 +239,6 @@ require ABSPATH . WPINC . '/html-api/class-wp-html-attribute-token.php';
 require ABSPATH . WPINC . '/html-api/class-wp-html-span.php';
 require ABSPATH . WPINC . '/html-api/class-wp-html-text-replacement.php';
 require ABSPATH . WPINC . '/html-api/class-wp-html-tag-processor.php';
-require ABSPATH . WPINC . '/html-api/class-wp-html-unsupported-exception.php';
-require ABSPATH . WPINC . '/html-api/class-wp-html-active-formatting-elements.php';
-require ABSPATH . WPINC . '/html-api/class-wp-html-open-elements.php';
-require ABSPATH . WPINC . '/html-api/class-wp-html-token.php';
-require ABSPATH . WPINC . '/html-api/class-wp-html-processor-state.php';
-require ABSPATH . WPINC . '/html-api/class-wp-html-processor.php';
 require ABSPATH . WPINC . '/class-wp-http.php';
 require ABSPATH . WPINC . '/class-wp-http-streams.php';
 require ABSPATH . WPINC . '/class-wp-http-curl.php';
@@ -522,7 +516,7 @@ do_action( 'sanitize_comment_cookies' );
 $GLOBALS['wp_the_query'] = new WP_Query();
 
 /**
- * Holds the reference to {@see $wp_the_query}.
+ * Holds the reference to @see $wp_the_query
  * Use this global for WordPress queries
  *
  * @global WP_Query $wp_query WordPress Query object.

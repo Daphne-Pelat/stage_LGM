@@ -125,14 +125,11 @@ function network_step1( $errors = false ) {
 
 	$active_plugins = get_option( 'active_plugins' );
 	if ( ! empty( $active_plugins ) ) {
-		wp_admin_notice(
-			'<strong>' . __( 'Warning:' ) . '</strong> ' . sprintf(
-				/* translators: %s: URL to Plugins screen. */
-				__( 'Please <a href="%s">deactivate your plugins</a> before enabling the Network feature.' ),
-				admin_url( 'plugins.php?plugin_status=active' )
-			),
-			array( 'type' => 'warning' )
-		);
+		echo '<div class="notice notice-warning"><p><strong>' . __( 'Warning:' ) . '</strong> ' . sprintf(
+			/* translators: %s: URL to Plugins screen. */
+			__( 'Please <a href="%s">deactivate your plugins</a> before enabling the Network feature.' ),
+			admin_url( 'plugins.php?plugin_status=active' )
+		) . '</p></div>';
 		echo '<p>' . __( 'Once the network is created, you may reactivate your plugins.' ) . '</p>';
 		echo '</div>';
 		require_once ABSPATH . 'wp-admin/admin-footer.php';
@@ -441,36 +438,35 @@ function network_step2( $errors = false ) {
 		?>
 		<h3><?php esc_html_e( 'Enabling the Network' ); ?></h3>
 		<p><?php _e( 'Complete the following steps to enable the features for creating a network of sites.' ); ?></p>
+		<div class="notice notice-warning inline"><p>
 		<?php
-		$notice_message = '<strong>' . __( 'Caution:' ) . '</strong> ';
-		$notice_args    = array(
-			'type'               => 'warning',
-			'additional_classes' => array( 'inline' ),
-		);
-
 		if ( file_exists( $home_path . '.htaccess' ) ) {
-			$notice_message .= sprintf(
+			echo '<strong>' . __( 'Caution:' ) . '</strong> ';
+			printf(
 				/* translators: 1: wp-config.php, 2: .htaccess */
 				__( 'You should back up your existing %1$s and %2$s files.' ),
 				'<code>wp-config.php</code>',
 				'<code>.htaccess</code>'
 			);
 		} elseif ( file_exists( $home_path . 'web.config' ) ) {
-			$notice_message .= sprintf(
+			echo '<strong>' . __( 'Caution:' ) . '</strong> ';
+			printf(
 				/* translators: 1: wp-config.php, 2: web.config */
 				__( 'You should back up your existing %1$s and %2$s files.' ),
 				'<code>wp-config.php</code>',
 				'<code>web.config</code>'
 			);
 		} else {
-			$notice_message .= sprintf(
+			echo '<strong>' . __( 'Caution:' ) . '</strong> ';
+			printf(
 				/* translators: %s: wp-config.php */
 				__( 'You should back up your existing %s file.' ),
 				'<code>wp-config.php</code>'
 			);
 		}
-
-		wp_admin_notice( $notice_message, $notice_args );
+		?>
+		</p></div>
+		<?php
 	}
 	?>
 	<ol>

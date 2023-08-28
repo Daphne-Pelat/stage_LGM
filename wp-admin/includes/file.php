@@ -777,9 +777,9 @@ function validate_file_to_edit( $file, $allowed_files = array() ) {
  *     An array of override parameters for this file, or boolean false if none are provided.
  *
  *     @type callable $upload_error_handler     Function to call when there is an error during the upload process.
- *                                              See {@see wp_handle_upload_error()}.
+ *                                              @see wp_handle_upload_error().
  *     @type callable $unique_filename_callback Function to call when determining a unique file name for the file.
- *                                              See {@see wp_unique_filename()}.
+ *                                              @see wp_unique_filename().
  *     @type string[] $upload_error_strings     The strings that describe the error indicated in
  *                                              `$_FILES[{form field}]['error']`.
  *     @type bool     $test_form                Whether to test that the `$_POST['action']` parameter is as expected.
@@ -845,7 +845,7 @@ function _wp_handle_upload( &$file, $overrides, $time, $action ) {
 	 * @since 5.7.0
 	 *
 	 * @param array|false $overrides An array of override parameters for this file. Boolean false if none are
-	 *                               provided. See {@see _wp_handle_upload()}.
+	 *                               provided. @see _wp_handle_upload().
 	 * @param array       $file      {
 	 *     Reference to a single element from `$_FILES`.
 	 *

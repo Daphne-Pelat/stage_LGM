@@ -358,14 +358,7 @@ if ( isset( $_GET['updated'] ) ) {
 	}
 
 	if ( ! empty( $msg ) ) {
-		$msg = wp_get_admin_notice(
-			$msg,
-			array(
-				'type'        => 'success',
-				'dismissible' => true,
-				'id'          => 'message',
-			)
-		);
+		$msg = '<div id="message" class="notice notice-success is-dismissible"><p>' . $msg . '</p></div>';
 	}
 }
 

@@ -1149,10 +1149,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 						</div><!-- /#post-body-content -->
 					</div><!-- /#post-body -->
 					<div id="nav-menu-footer">
-						<div class="major-publishing-actions">
-							<div class="publishing-action">
-								<?php submit_button( empty( $nav_menu_selected_id ) ? __( 'Create Menu' ) : __( 'Save Menu' ), 'primary large menu-save', 'save_menu', false, array( 'id' => 'save_menu_footer' ) ); ?>
-							</div><!-- END .publishing-action -->
+						<div class="major-publishing-actions wp-clearfix">
 							<?php if ( $menu_count > 0 ) : ?>
 
 								<?php if ( $add_new_screen ) : ?>
@@ -1181,6 +1178,9 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 								<?php endif; ?>
 
 							<?php endif; ?>
+							<div class="publishing-action">
+								<?php submit_button( empty( $nav_menu_selected_id ) ? __( 'Create Menu' ) : __( 'Save Menu' ), 'primary large menu-save', 'save_menu', false, array( 'id' => 'save_menu_footer' ) ); ?>
+							</div><!-- END .publishing-action -->
 						</div><!-- END .major-publishing-actions -->
 					</div><!-- /#nav-menu-footer -->
 				</div><!-- /.menu-edit -->
